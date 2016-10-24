@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .clock{
+            width: 300px;
+            height: 300px;
+            border: 5px solid #000;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -150px 0 0 -150px;
+        }
+        .h{
+            width: 12px;
+            height: 80px;
+            background: #000;
+            position: absolute;
+            left:50%;
+            margin-left: -6px;
+            top:70px;
+            border-radius: 50% 50% 0 0;
+            -webkit-transform-origin:  bottom;
+
+        }
+        .m{
+            width: 8px;
+            height: 100px;
+            background: #0000ff;
+            position: absolute;
+            left:50%;
+            top:50px;
+            margin-left: -4px;
+            border-radius: 50% 50% 0 0;
+            -webkit-transform-origin:  bottom;
+        }
+        .s{
+            width: 4px;
+            height: 120px;
+            background: #f00;
+            position: absolute;
+            left:50%;
+            top:30px;
+            margin-left: -2px;
+            border-radius: 50% 50% 0 0;
+            -webkit-transform-origin: bottom;
+        }
+        .con{
+            width: 20px;
+            height: 20px;
+            background: -webkit-linear-gradient(red,blue);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -10px 0 0 -10px;
+        }
+        span{
+            width: 6px;
+            height: 10px;
+            background: #000;
+            position: absolute;
+            left: 50%;
+            top:0;
+
+            margin-left: -3px;
+            -webkit-transform-origin: center 150px;
+        }
+        i{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left:50%;
+            margin-left: -10px;
+            font-style: normal;
+            top: 20px;
+            line-height: 20px;
+            text-align: center;
+            color: #2ecc71;
+        }
+        .big{
+            height: 20px;
+        }
+    </style>
+    <script>
+        window.onload=function (){
+            var oClo = document.querySelector('.clock');
+            var oH = document.querySelector('.h');
+            var oM = document.querySelector('.m');
+            var oS = document.querySelector('.s');
+
+            var N = 60;
+            for(var i=0;i<N;i++){
+                var oSpan = document.createElement('span');
+                oSpan.style.WebkitTransform='rotate('+i*6+'deg)';
+                if(i%5==0){
+                    oSpan.className='big';
+                    var str = 'ⅫⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩⅪ'.charAt(i/5);
+                    //alert(str);
+                    oSpan.innerHTML='<i>'+str+'</i>';
+                    var oI = oSpan.children[0];
+                    //alert(oI);
+                    oI.style.WebkitTransform='rotate('+(-i*6)+'deg)'
+
+                }
+                oClo.appendChild(oSpan);
+            }
+            function Clock(){
+                var oDate = new Date();
+                var h = oDate.getHours();
+                var m = oDate.getMinutes();
+                var s = oDate.getSeconds();
+
+                //alert(m)
+                oH.style.WebkitTransform='rotate('+h/12*30+m/60*30+'deg)';
+                oM.style.WebkitTransform='rotate('+(m*6+s/60*6)+'deg)';
+                oS.style.WebkitTransform='rotate('+s*6+'deg)';
+            };
+            Clock();
+            setInterval(Clock,1000);
+        }
+    </script>
+</head>
+<body>
+<div class="clock">
+    <div class="h"></div>
+    <div class="m"></div>
+    <div class="s"></div>
+    <div class="con"></div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin: 100px auto;
+            -webkit-transform-style:preserve-3d;
+            -webkit-transition: 1s all ease;
+            -webkit-transform: perspective(800px) rotateY(0deg);
+        }
+        .box div{
+            text-align: center;
+            line-height: 200px;
+            font-size: 50px;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+        }
+        .front{
+
+            -webkit-transform: translateZ(100px);
+            background: #FF0000;
+        }
+        .back{
+            -webkit-transform: translateZ(-100px) scale(-1,1);
+            background: #0000ff;
+        }
+        .box:active{
+
+            -webkit-transform: perspective(800px) rotateY(180deg);
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="front">正面</div>
+    <div class="back">反面</div>
+
+</div>
+</body>
+</html>

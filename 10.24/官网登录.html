@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .login_btn{
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            z-index: 1;
+        }
+        body{
+            overflow: hidden;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background: #f1f11f;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -100px 0 0 -100px;
+            line-height: 25px;
+            padding: 10px;
+            -webkit-transition: .2s all ease;
+            -webkit-transform: scale(10,10);
+            opacity: 0;
+        }
+        div:active{
+
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var oLo = document.querySelector('.login_btn');
+            var oLogin = document.querySelector('.login');
+            var oBtn = document.querySelector('.btn');
+            oLo.onclick=function(){
+                oLogin.style.WebkitTransform='scale(1,1)';
+                oLogin.style.opacity=1;
+            };
+            oBtn.onclick=function(){
+                oLogin.style.WebkitTransform='scale(10,10)';
+                oLogin.style.opacity=0;
+            }
+        }
+    </script>
+</head>
+<body>
+<a href="javascript:;" class="login_btn">登录</a>
+<div class="login">
+    拉开松井大辅加啊四 <br>
+    啊咯松井大辅了楼上的房间 <br>
+    啊u是几点发货咯 <br>
+    喀什地方哈市 <br>
+    <a href="javascrit:;" class="btn">X</a>
+</div>
+</body>
+</html>
